@@ -1,0 +1,298 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* font-family: 'Courier New', Courier, monospace; */
+}
+:root{
+    --primary-color:#007BFF;
+    --secondary-color:#0A192F;
+    --tertiary-color:#66FCF1;
+    --quaternary-color:#080d12;
+    --quinary-color:#262728;
+}
+header{
+    background-color: var(--secondary-color);
+    height: 10vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    z-index: 1000;
+}
+header>.logo{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+    font-size: large;
+    font-weight: bold;
+}
+header>.navigations{
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    font-size: large;
+    font-weight: bold;
+}
+header>.navigations>.nav-item>a{
+    text-decoration: none;
+    color: var(--primary-color);
+    width: max-content;
+    position: relative;
+}
+header>.navigations>.nav-item>a::after{
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 0;
+    background-color: var(--tertiary-color);
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s;
+}
+header>.navigations>.nav-item>a:hover::after{
+    width: 100%;
+}
+header>.navigations>.nav-item>a:hover{
+    color: var(--tertiary-color);
+    cursor: pointer;
+}
+.main-footer{
+    height: max-content;
+    width: 100%;
+    padding: 30px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: var(--quinary-color);
+}
+.footer-content{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.zenoweb-logo-and-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+    height: 25vh;
+}
+.footer-logo{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    padding-left: 10px;
+}
+.footer-logo>img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+.footer-info{
+    color: grey;
+    font-size: large;
+    padding: 10px;
+}
+.footer-socials{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+.footer-socials>a{
+    text-decoration: none;
+    color: grey;
+    font-size: 2rem;
+}
+.footer-socials>a:hover{
+    color: var(--primary-color);
+}
+.footer-links{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 25vh;
+    width: 20%;
+}
+.footer-links>p, .footer-contact-us>p{
+    color: #fff;
+    font-size: large;
+}
+.footer-links>span>a, .footer-contact-us>span>a{
+    text-decoration: none;
+    color: grey;
+    font-size: large;
+}
+.footer-links>span>a:hover, .footer-contact-us>span>a:hover{
+    color: var(--primary-color);
+}
+.footer-contact-us{
+    display: flex;
+    flex-direction: column;
+    height: 25vh;
+    width: 20%;
+    align-items: flex-start;
+    gap: 20px;
+}
+.footer-bottom{
+    color: grey;
+}
+/* Notice responsiveness */
+.demo-notice {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: #fff;
+    color: var(--quaternary-color);
+    padding: 16px 24px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    display: none;
+    align-items: center;
+    gap: 12px;
+    width: 90%;
+    max-width: 400px;
+    z-index: 9999;
+    font-family: system-ui, sans-serif;
+    animation: fadeInFromBottom 1s ease-in-out forwards;
+  }
+
+  .notice-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .notice-text {
+    font-size: 1rem;
+    flex-grow: 1;
+  }
+
+@keyframes fadeInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  to {
+    opacity: 1;
+    transform:  translateY(0);
+  }
+}
+
+.demo-notice.hide {
+  animation: fadeOutToBottom 1s ease-in-out forwards;
+}
+
+@keyframes fadeOutToBottom {
+  from {
+    opacity: 1;
+    transform:   translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform:  translateY(50%) scale(0.95);
+  }
+}
+
+
+  @media screen and (max-width: 700px) {
+    .demo-notice {
+      font-size: 0.9rem;
+      padding: 12px 16px;
+      right: 50%;
+    }
+    @keyframes fadeOutToBottom {
+        from {
+            opacity: 1;
+            transform:  translateX(50%) translateY(0) scale(1);
+        }
+        to {
+            opacity: 0;
+            transform:  translateX(50%) translateY(50%) scale(0.95);
+        }
+    }
+    @keyframes fadeInFromBottom {
+        from {
+            opacity: 0;
+            transform: translateX(50%) translateY(50%);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(50%) translateY(0);
+        }
+    }
+    header{
+        padding: 0 8px;
+        }
+        header>.logo{
+            font-size: medium;
+        }
+        header>.navigations{
+            font-size: small;
+        }
+        .main-footer{
+            height: 110vh;
+            gap: 10px;
+        }
+        .footer-content{
+            flex-direction: column;
+            padding-top: 30px;
+            gap: 25px;
+        }
+        .zenoweb-logo-and-info{
+            width: 100%;
+            height: 20vh;
+        }
+        .footer-logo{
+            width: 100%;
+            padding-left: 10px;
+        }
+        .footer-logo>img{
+            height: 30px;
+            width: 30px;
+        }
+        .footer-info{
+            font-size: medium;
+            padding: 2px;
+        }
+        .footer-socials{
+            gap: 5px;
+            width: 100%;
+        }
+        .footer-socials>a{
+            font-size: 1rem;
+        }
+        .footer-links{
+            height: 20vh;
+            width: 100%;
+        }
+        .footer-links>p, .footer-contact-us>p{
+            font-size: medium;
+        }
+        .footer-links>span>a, .footer-contact-us>span>a{
+            font-size: medium;
+        }
+        .footer-contact-us{
+            height: 15vh;
+            width: 100%;
+            gap: 5px;
+        }
+        .footer-bottom{
+            color: grey;
+        }
+    }

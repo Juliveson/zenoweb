@@ -1,0 +1,189 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+    {% block imports %}
+        <link rel="stylesheet" href="{% static 'portfolio/css/home.css' %}">
+        <script src="{% static 'portfolio/js/home.js' %}"></script>
+    {% endblock %}
+    {% block title %}
+     <title>ZenoWeb | Home</title>
+    {% endblock %}
+
+    {% block main %}
+    <main class="site-content">
+        <section class="hero">
+            <div id="hero">
+                <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in">We Build. We Manage. We Transform.</h1>
+                <p data-aos="fade-up" data-aos-duration="1500" data-aos-easing="ease-in">Empowering brands with cutting-edge websites and seamless management.</p>
+                <div class="hero-buttons" data-aos="fade-up" data-aos-duration="2000" data-aos-easing="ease-in">
+                    <a href="#" class="primary">Book a Service →</a>
+                    <a href="#" class="secondary">See Our Work</a>
+                </div>
+            </div>
+        </section>
+        <section class="about-section" id="about-section">
+            <div>
+                <h1 data-aos="fade-up" data-aos-duration="1000">About ZenoWeb</h1>
+                <p data-aos="fade-up" data-aos-duration="1500">ZenoWeb is a digital agency crafting beautiful, fast, and secure websites. Run by two passionate developers who care about your online success.</p>
+            </div>
+        </section>
+        <section class="services-section">
+            <h1 data-aos="fade-up" data-aos-duration="500">Our Services</h1>
+            <p data-aos="fade-up" data-aos-duration="1000">We offer a range of digital services to help your business thrive online.</p>
+            <div class="services-cards" data-aos="fade-up" data-aos-duration="1200">
+                <div class="service-card">
+                    <span class="service-img">
+                        <img src="https://i.pinimg.com/736x/39/c6/2c/39c62c2a94db01fd106fdeff11ef8dbc.jpg">
+                        <div class="card-overlay">
+                            <p>Web Development</p>
+                        </div>
+                    </span>
+                    <p id="card-description">Custom  websites, e-commerce platforms, and landing pages designed to captivate your audience and drive results.</p>
+                    <div class="card-link">
+                        <a href="#">Book Now</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <span class="service-img">
+                        <img src="https://i.pinimg.com/736x/54/3e/d3/543ed399ae29a2960956e9613f9a3f75.jpg">
+                        <div class="card-overlay">
+                            <p>Web Management</p>
+                        </div>
+                    </span>
+                    <p id="card-description">Regular updates, security patches, backups, and troubleshooting to keep your site running smoothly.</p>
+                    <div class="card-link">
+                        <a href="#">Book Now</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <span class="service-img">
+                        <img src="https://i.pinimg.com/736x/d2/ba/b3/d2bab3bb81ec644e77e6ab5c3147a7b5.jpg">
+                        <div class="card-overlay">
+                            <p>SEO Optimization</p>
+                        </div>
+                    </span>
+                    <p id="card-description">Improve your site's speed, search ranking, and overall performance to attract more visitors.</p>
+                    <div class="card-link">
+                        <a href="#">Book Now</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <span class="service-img">
+                        <img src="https://i.pinimg.com/736x/d5/c2/4f/d5c24f62476ec0088d63bd3d49a54500.jpg">
+                        <div class="card-overlay">
+                            <p>Web Consultation</p>
+                        </div>
+                    </span>
+                    <p id="card-description">Expert advice on digital strategy, website audits, and recommendations tailored to your business needs.</p>
+                    <div class="card-link">
+                        <a href="#">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="book-service">
+            <h1 data-aos="fade-up" data-aos-duration="1000">Book a Service</h1>
+            <p data-aos="fade-up" data-aos-duration="1500">Ready to take your online presence to the next level? Let's get started on your project.</p>
+            <div class="contact-form">
+                <span class="form-progress-bar"><span id="inner-progress"></span></span>
+                <form id="service-form" action="{% url 'portfolio:service' %}">
+                    {% csrf_token %}
+                    <!-- Step 1 -->
+                    <div class="form-step active">
+                        <span>
+                            <label for="first-name">Name<sup>*</sup></label>
+                            <input type="text" placeholder="Your Name" required name="name">
+                        </span>
+                        <span>
+                            <label for="email">Email<sup>*</sup></label>
+                            <input type="email" placeholder="janedoe@gmail.com" required name="email">
+                        </span>
+                        <div class="action-btns">
+                            <button type="button" class="next-btn">Next</button>
+                        </div>
+                      </div>
+                    
+                      <!-- Step 2 -->
+                      <div class="form-step">
+                          <span>
+                            <label for="service">Service<sup>*</sup></label>
+                            <select required name="service">
+                            <option value="">Select a service</option>
+                            <option value="Development">Web development</option>
+                            <option value="Management">Web management</option>
+                            <option value="Optimization">SEO optimization</option>
+                            <option value="Consultation">Web consultation</option>
+                        </select> 
+                        </span>
+                        <span>
+                            <label for="date">Preferred start date</label>
+                            <input type="date" name="date" style="color: #fff;">
+                        </span>
+                        <div class="action-btns">
+                          <button type="button" class="prev-btn">Previous</button>
+                          <button type="button" class="next-btn">Next</button>
+                        </div>
+                      </div>
+                    
+                      <!-- Step 3 -->
+                      <div class="form-step">
+                        <span>
+                            <label for="details">Project Details</label>
+                            <input type="text" placeholder="Project details" name="details">
+                        </span>
+                        <div class="action-btns">
+                          <button type="button" class="prev-btn">Previous</button>
+                          <button type="submit" class="submit-btn">Submit</button>
+                        </div>
+                      </div>
+                </form>
+            </div>
+        </section>
+        <section class="testimonials">
+            <h1 data-aos="fade-up" data-aos-duration="1000">What Our Clients Say</h1>
+            <div class="testimonials-cards">
+                <div class="testimonial-card">
+                    <div class="profile-and-title">
+                        <img src="https://i.pinimg.com/736x/6c/55/07/6c5507dcf80e561055ec2ff456c2ac84.jpg">
+                        <span class="profile-title">
+                            <p id="profile-username">Jane Doe</p>
+                            <p id="user-description">CEO, Tech Innovations</p>
+                        </span>
+                    </div>
+                    <p>"ZenoWeb transformed our online presence. Their attention to detail and commitment to quality is unmatched!"</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="profile-and-title">
+                        <img src="https://i.pinimg.com/736x/6c/55/07/6c5507dcf80e561055ec2ff456c2ac84.jpg">
+                        <span class="profile-title">
+                            <p id="profile-username">Jane Doe</p>
+                            <p id="user-description">CEO, Tech Innovations</p>
+                        </span>
+                    </div>
+                    <p>"ZenoWeb transformed our online presence. Their attention to detail and commitment to quality is unmatched!"</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="profile-and-title">
+                        <img src="https://i.pinimg.com/736x/6c/55/07/6c5507dcf80e561055ec2ff456c2ac84.jpg">
+                        <span class="profile-title">
+                            <p id="profile-username">Jane Doe</p>
+                            <p id="user-description">CEO, Tech Innovations</p>
+                        </span>
+                    </div>
+                    <p>"ZenoWeb transformed our online presence. Their attention to detail and commitment to quality is unmatched!"</p>
+                </div>
+            </div>
+        </section>
+        <section class="queries">
+            <div id="hero2">
+                <h1 data-aos="fade-up" data-aos-duration="1000">Have Questions?</h1>
+                <p data-aos="fade-up" data-aos-duration="1500">We're here to help! Reach out to us for any inquiries or support.</p>
+                <span class="contact-and-email">
+                    <a href="#" class="email-btn">Email Us</a>
+                    <a href="#" class="call-btn">Call Us</a>
+                </span>
+            </div>
+        </section>
+    </main>
+    {% endblock %}
+</body>
+</html>

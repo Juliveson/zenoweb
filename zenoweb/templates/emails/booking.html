@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Service Request Confirmation</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 20px; color: #333;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: auto; background-color: #ffffff; border-radius: 6px; padding: 20px;">
+    <tr>
+      <td>
+        <h2 style="color: #2a7ae2;">Thank You for Requesting a Service, {{ user.name }}!</h2>
+        <p style="font-size: 16px;">We’ve received your request at <strong>Zenoweb</strong>. Here's a summary of the details you provided:</p>
+
+        <!-- Bordered table -->
+        <table width="100%" cellpadding="8" cellspacing="0" style="width: 100%; margin-top: 15px; font-size: 15px; border-collapse: collapse; border: 1px solid #ccc;">
+          <tr>
+            <td style="border: 1px solid #ccc;"><strong>Service:</strong></td>
+            <td style="border: 1px solid #ccc;">{{ user.service }}</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #ccc;"><strong>Preferred Start Date:</strong></td>
+            <td style="border: 1px solid #ccc;">{{ user.service_date }}</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #ccc;"><strong>Project Details:</strong></td>
+            <td style="border: 1px solid #ccc;">{{ user.project_details }}</td>
+          </tr>
+        </table>
+
+        <p style="margin-top: 20px;">We’ll get in touch with you shortly to discuss your project further.</p>
+
+        <p style="margin-top: 30px;">Best regards,<br><strong>Zanoweb Team</strong></p>
+
+        <hr style="margin-top: 40px; border: none; border-top: 1px solid #ddd;">
+        <p style="font-size: 12px; color: #777; text-align: center;">Zenoweb – We build, manage and transform websites.</p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
